@@ -262,32 +262,48 @@ namespace Placement_Cell
 
         protected void Button2_Click(object sender, EventArgs e)
         {
+            TextBox textBox1 = GridView2.FindControl("txtA") as TextBox;
 
+            string sql = "insert into tbl_question(Question) values('" + TextBox1.Text.Trim() + "');";
+            sql += "select @@IDENTITY";
 
+            SqlCommand cmd = new SqlCommand(sql, con);
+            //cmd.ExecuteNonQuery();
+            object obj = cmd.ExecuteScalar();
+            int Qus_id = Convert.ToInt16(obj);
+            Response.Write(Qus_id);
             foreach (GridViewRow gr in GridView2.Rows)
             {
                 if (gr.RowType == DataControlRowType.DataRow)
                 {
-                    TextBox textBox1 = gr.FindControl("txtA") as TextBox;
-                    //TextBox textBox2 = gr.FindControl("txtB") as TextBox;
-                    //TextBox textBox3 = gr.FindControl("txtC") as TextBox;
-                    //TextBox textBox4 = gr.FindControl("txtD") as TextBox;
+                 TextBox textBox2 = gr.FindControl("txtA") as TextBox;
 
+                
 
-                    string sql = "insert into Questionanswer(Question_id,Question,Answer1,category_id,Exam_id) values('" + TextBox2.Text.Trim() + "','" + TextBox1.Text.Trim() + "','" + textBox1.Text.Trim() + "','" + ddl1.SelectedItem.Value + "','" + ddl2.SelectedItem.Value + "')";
-                    SqlCommand cmd = new SqlCommand(sql, con);
-                    cmd.ExecuteNonQuery();
-
+                //    string sql = "insert into tbl_question(Question) values('" + TextBox1.Text.Trim() + "');";
+                //    sql += "select @@IDENTITY";
                    
+                //    SqlCommand cmd = new SqlCommand(sql, con);
+                //    //cmd.ExecuteNonQuery();
+                //    object obj = cmd.ExecuteScalar();
+                //    int Qus_id = Convert.ToInt16(obj);
+
+                    //Response.Write(Qus_id);
 
                         CheckBox cb = (gr.Cells[0].FindControl("chb1") as CheckBox);
                         if (cb.Checked)
                         {
 
-                            string sqll = "insert into Answer(Question_id,Answer) values('" + TextBox2.Text.Trim() + "','" + textBox1.Text.Trim() + "')";
-                            SqlCommand cmdd = new SqlCommand(sqll, con);
+                            sql = "insert into Options(Options,Qus_id,ans) values('"+ textBox2.Text.Trim()  +"','" + Qus_id + "',1)";
+                            SqlCommand cmdd = new SqlCommand(sql, con);
                             cmdd.ExecuteNonQuery();
 
+                        }
+                        else
+                        {
+                            sql = "insert into Options(Options,Qus_id,ans) values('" + textBox2.Text.Trim() + "','" + Qus_id + "',0)";
+                            SqlCommand cmdd1 = new SqlCommand(sql, con);
+                            cmdd1.ExecuteNonQuery();
                         }
 
 

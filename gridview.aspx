@@ -2,23 +2,16 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
 
     <table class="nav-justified">
+       
         <tr>
-            <td> &nbsp;&nbsp;&nbsp;&nbsp;  <asp:TextBox ID="TextBox2" runat="server" ></asp:TextBox></td>
-            <td>&nbsp;</td>
-            <td>&nbsp;</td>
-            <td>&nbsp;</td>
-            <td>&nbsp;</td>
-        </tr>
-        <tr>
+            <td colspan="2">Question </td>
             <td>
                &nbsp;&nbsp;&nbsp;&nbsp; <asp:TextBox ID="TextBox1" runat="server" ></asp:TextBox>
             </td>
             <td>
                 <asp:Button ID="Button1" runat="server" Text="Button" OnClick="Button1_Click" />
             </td>
-            <td>&nbsp;</td>
-            <td>&nbsp;</td>
-            <td>&nbsp;</td>
+            
         </tr>
         <tr>
             <td>
@@ -27,8 +20,7 @@
             <td>
                 &nbsp;</td>
             <td>&nbsp;</td>
-            <td>&nbsp;</td>
-            <td>&nbsp;</td>
+            
         </tr>
         <tr>
             <td>
@@ -36,9 +28,10 @@
             </td>
             <td>&nbsp;</td>
             <td>&nbsp;</td>
-            <td>&nbsp;</td>
-            <td>&nbsp;</td>
+            
         </tr>
+           </table>
+    <table>
         <tr> &nbsp;&nbsp;&nbsp;&nbsp;<asp:GridView ID="GridView2" runat="server" AutoGenerateColumns="false" 
                             HeaderStyle-BackColor="Red" HeaderStyle-ForeColor="White" Height="82px" 
                              OnRowDataBound="GridView2_RowDataBound">
@@ -55,24 +48,7 @@
                                         </asp:TextBox>
                                     </ItemTemplate>
                                 </asp:TemplateField>
-                                <%--<asp:TemplateField HeaderText="Option B">
-                                    <ItemTemplate>
-                                        <asp:TextBox ID="txtB"  runat="server">
-                                        </asp:TextBox>
-                                    </ItemTemplate>
-                                </asp:TemplateField>
-                                <asp:TemplateField HeaderText="Option C">
-                                    <ItemTemplate>
-                                        <asp:TextBox ID="txtC"  runat="server">
-                                        </asp:TextBox>
-                                    </ItemTemplate>
-                                </asp:TemplateField>
-                                <asp:TemplateField HeaderText="Option D">
-                                    <ItemTemplate>
-                                        <asp:TextBox ID="txtD"  runat="server">
-                                        </asp:TextBox>
-                                    </ItemTemplate>
-                                </asp:TemplateField>--%>
+                               
                             
                             </Columns>
                         </asp:GridView>
@@ -191,6 +167,6 @@
             <td>&nbsp;</td>
             <td>&nbsp;</td>
         </tr>
-    </table>
+ </table>
 
 </asp:Content>
